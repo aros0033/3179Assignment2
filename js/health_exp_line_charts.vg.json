@@ -1,0 +1,91 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "vconcat" : [ {
+    "width" : 850,
+    "title" : "Health Expenditure, Category of spending",
+    "data" : {
+    "url": "./data/HealthExpByCategory.csv"
+},
+"mark": {
+    "type": "line",
+    "strokeWidth": 2
+  },
+    "encoding": {
+        "x" : {
+            "field": "Year",
+            "type": "temporal",
+            "timeUnit" : "year",
+            "title" : "Year",
+             "axis": {
+                "tickCount": 11
+              }
+          },
+      "y": {
+        "field": "Amount",
+        "type": "quantitative",
+        "title" : "Amount in millions ($)"        
+      },
+      "color": {
+        "field": "Category",
+        "type": "nominal",
+        "title" : "Spending category",
+        "legend": {
+            "orient" : "bottom"
+          }
+      },
+      
+      "tooltip": [
+        {"field": "Category", "type": "nominal"},
+        {"field": "Amount", "type": "quantitative", "title" : "Amount in millions", "format" : "$.0f"}
+      ]
+    }
+},
+{   
+    "width" : 850,
+    "title" : "Health Expenditure, Sources of funds",
+    "data" : {
+   "url": "./data/HealthExpByFunding.csv"},
+    "mark": {
+        "type": "line",
+        "strokeWidth": 2
+      },
+        "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "temporal",
+        "timeUnit" : "year",
+        "title" : "Year",
+        "axis": {
+                "tickCount": 11
+              }
+      },
+      "y": {
+        "field": "Amount",
+        "type": "quantitative",
+        "title" : "Amount in millions ($)"
+      },
+      "color" : {
+        "field" : "Category",
+        "type" : "nominal",
+        "title" : "Source of funds",
+        "legend": {
+            "orient" : "bottom"
+          }
+          
+      },
+      "tooltip": [
+        {"field": "Category", "type": "nominal"},
+        {"field": "Amount", "type": "quantitative", "title" : "Amount in millions", "format" : "$.0f"}
+      ]
+    }
+  }], 
+
+  "resolve": {
+    "legend": {
+      "color": "independent"
+    },
+    "scale": {
+      "color": "independent"
+    }
+  }
+  }
