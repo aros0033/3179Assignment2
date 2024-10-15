@@ -1,0 +1,89 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "params": [
+      {
+        "name": "year_selection",
+        "value": 2021,
+        "bind": {
+          "input": "range",
+          "min": 2011,
+          "max": 2021,
+          "step": 1,
+          "name": "Year"
+        }
+      }
+    ],
+    "title": "Health expenditure as a % of GDP (2011-2021)",
+    "width": "container",
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/aros0033/3179Assignment2/refs/heads/main/js/WorldMapWithGraticules.topojson",
+      "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
+    },
+    "projection": { "type": "equalEarth" },
+    "layer": [
+      {
+        "transform": [
+          {
+            "calculate": "'Data is not available in ' + datum.properties.NAME",
+            "as": "note"
+          }
+        ],
+        "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" },
+        "encoding": { "tooltip": { "field": "note" } }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/aros0033/3179Assignment2/refs/heads/main/js/Oceans.topojson",
+          "format": { "type": "topojson", "feature": "oceans" }
+        },
+        "mark": { "type": "geoshape", "fill": "skyblue" }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/aros0033/3179Assignment2/refs/heads/main/js/WorldMapWithGraticules.topojson",          "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
+        },
+        "mark": { "type": "geoshape", "fill": null, "stroke": "lightgray" }
+      },
+      {
+        "transform": [
+          {
+            "lookup": "properties.ADM0_A3",
+            "from": {
+              "data": {
+                "url": "./data/GlobalHealthExpenditure.csv"
+              },
+              "key": "Country Code",
+              "fields": ["2011","2012","2013","2014","2015","2016","2017","2018","2019","2020", "2021"]
+            }
+          },
+          {"calculate": "datum[year_selection]",
+        "as" : "health_expenditure"},
+           {
+            "filter" : "datum[year_selection]" 
+          }
+        ],
+        
+        "mark": { "type": "geoshape", "stroke": "white" },
+        "encoding": {
+          "color": { "field": "health_expenditure", "type": "quantitative", "scale": { "type": "log" },
+          "legend": {
+              "title": "Health expenditure as a % of GDP",
+              "format": ".0f",
+              "orient": "top-left",
+              "direction": "vertical"
+
+            }
+          },
+          "tooltip": [
+            { "field": "properties.NAME", "type": "nominal", "title": "Country" },
+            {"field": "health_expenditure", "title": "Health expenditure as a % of GDP", "type": "quantitative", "format": ".2f" }
+          ]
+        }
+      }
+    ]
+  
+  }
+  
+  
