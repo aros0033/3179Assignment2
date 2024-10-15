@@ -36,7 +36,7 @@
       
       "tooltip": [
         {"field": "Category", "type": "nominal"},
-        {"field": "Amount", "type": "quantitative", "title" : "Amount in millions", "format" : "$.0f"}
+        {"field": "Amount", "type": "quantitative", "title" : "Amount in millions", "format" : "$,.0f"}
       ]
     }
 },
@@ -75,7 +75,7 @@
       },
       "tooltip": [
         {"field": "Category", "type": "nominal"},
-        {"field": "Amount", "type": "quantitative", "title" : "Amount in millions", "format" : "$.0f"}
+        {"field": "Amount", "type": "quantitative", "title" : "Amount in millions", "format" : "$,.0f"}
       ]
     }
   }], 
