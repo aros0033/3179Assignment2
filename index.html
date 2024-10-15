@@ -2,7 +2,6 @@
 <html>
 <head>
   <Title>Assignment 2 FIT3179</Title>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
@@ -21,20 +20,30 @@
   <!-- Visualisation Container -->
   <div class="visualisation">
     <h3>Global Health Expenditure</h3>
+    <p>In line with the global pandemic in 2020 Australia's health expenditure to GDP % peaked at 10.68% putting it 8.08% behind the USA (18.76%).
+      <br>Furthermore, in 2011 Australia saw its lowest % in this 10 year period (2011-2021), 8.54%.  </p>
     <div id="vis1" class="vis-container"></div>
   </div>
 
   <div class="visualisation">
+    <p>
+      Tasmania and SA have been the front runners of health expenditure to GSP %, averaging around 0.14% from 2011-2021.
+      <br>WA has consistently been the lowest performing state in terms of health expenditure</p>
     <h3>Health Expenditure in Australia</h3>
     <div id="vis2" class="vis-container"></div>
-    <p>Note: The above visualisation is interactive. 
-      <br>Click on a state in the map to highlight the corresponding line in the line chart. 
+    <p class = "note"> Note: The above visualisation is interactive. 
+      <br>Click on a state on the map to highlight the corresponding line in the line chart. 
       <br>Drag along the line chart to highlight and change the year on the map. 
     </p>
   </div>
   <div class="visualisation"> 
+    <p>As expected the majority of health expenditure is funded by government entities (State and territory + Australian Government),
+      <br>with 73% of all funds originating from government entities in 2021.
+      <br><br> From 2011-2021 the predominant areas of spending have consistently been primary health care, public hospital services and referred medical services
+      <br> with an uptick seen in 2020, in line with the global pandemic.
+    </p>
     <div id="vis3" class="vis-container"></div>
-    <p>
+    <p class="note">
       <br>Global health expenditure (World bank): https://data.worldbank.org/indicator/SH.XPD.CHEX.GD.ZS 
       <br>Health expenditure in Australia (Australia institute of health and welfare): https://www.aihw.gov.au/reports/health-welfare-expenditure/health-expenditure-australia-2021-22/data
       <br>Gross state product (Australia bureau of statistics): https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-state-accounts/latest-release#data-downloads  
