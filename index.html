@@ -13,68 +13,45 @@
   
 </head>
 
-<body>
+<div class="page">
 
- <div class="page">
+  <!-- Title -->
+  <h1>Health Expenditure in Australia</h1>
 
-    <!-- Title -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h1>Expenditure on Health in Australia</h1> 
-      </div>
-    </div>
+  <!-- Visualisation Container -->
+  <div class="visualisation">
+    <h3>Global Health Expenditure</h3>
+    <div id="vis1" class="vis-container"></div>
+  </div>
 
-    <!-- Visualisation 1 -->
-    <div class="pure-g">
-        <div class="pure-u-1-2">
-          <div class="description">
-            <h2>Visualisation 1</h2>
-            <p>This visualisation demonstrates the total government expenditure on health in Australia by state.</p>
-          </div>
-        </div>
-        <div class="pure-u-1-1">
-          <div id="vis1" class="vis-container"></div>
-        </div>
-      </div>
+  <div class="visualisation">
+    <h3>Health Expenditure in Australia</h3>
+    <div id="vis2" class="vis-container"></div>
+    <p>Note: The above visualisation is interactive. 
+      <br>Click on a state in the map to highlight the corresponding line in the line chart. 
+      <br>Drag along the line chart to highlight and change the year on the map. 
+    </p>
+  </div>
+  <div class="visualisation"> 
+    <div id="vis3" class="vis-container"></div>
+    <p>
+      <br>Global health expenditure (World bank): https://data.worldbank.org/indicator/SH.XPD.CHEX.GD.ZS 
+      <br>Health expenditure in Australia (Australia institute of health and welfare): https://www.aihw.gov.au/reports/health-welfare-expenditure/health-expenditure-australia-2021-22/data
+      <br>Gross state product (Australia bureau of statistics): https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-state-accounts/latest-release#data-downloads  
+    </p>
+  </div>
+</div>
 
-    <!-- Visualisation 2 -->
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div class="description">
-          <h2>Visualisation 2</h2>
-          <p>This visualisation demonstrates the total government expenditure on health in Australia by state.</p>
-        </div>
-      </div>
-      <div class="pure-u-1-1">
-        <div id="vis2" class="vis-container"></div>
-      </div>
-    </div>
+<script type="text/javascript">
+  var specVis1 = "js/global_health_expenditure.vg.json";
+  var specVis2 = "js/aus_health_expenditure.vg.json";
+  var specVis3 = "js/health_exp_line_charts.vg.json";
 
-
-    <!-- Visualisation 3 -->
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div class="description">
-          <h2>Visualisation 3</h2>
-          <p>This visualisation demonstrates the total government expenditure on health in Australia by state.</p>
-        </div>
-      </div>
-      <div class="pure-u-1-1">
-        <div id="vis3" class="vis-container"></div>
-      </div>
-    </div>
-
-
-  </div> <!-- end page -->
-
-  <script type="text/javascript">
-    var specVis1 = "js/working.vg.json";
-    var specVis2 = "js/test.vg.json";
-    var specVis3 = "js/health_exp_line_charts.vg.json";
-
-    vegaEmbed('#vis1', specVis1, { "actions": false }).catch(console.error);
-    vegaEmbed('#vis2', specVis2, { "actions": false }).catch(console.error);
-    vegaEmbed('#vis3', specVis3, { "actions": false }).catch(console.error);
+  vegaEmbed('#vis1', specVis1, { "actions": false }).catch(console.error);
+  vegaEmbed('#vis2', specVis2, { "actions": false }).catch(console.error);
+  vegaEmbed('#vis3', specVis3, { "actions": false }).catch(console.error);
+</script>
+</body>
   </script>
 
   </script>
